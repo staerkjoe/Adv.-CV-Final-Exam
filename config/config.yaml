@@ -1,40 +1,14 @@
-# Model configuration
+data:
+  download_path: "../data/downloaded_dataset"       
+
+robowflow:
+  workspace: "cv-uoacw"
+  project: "playingcarddetection-tea12-whczv"
+  version: 1
+
 model:
-  name: "resnet50"
-  pretrained: true
-  num_classes: 80  # COCO has 80 classes
-
-# Dataset configuration
-dataset:
-  name: "coco-2017"
-  split: "train"  # Options: train, validation, test
-  label_types:
-    - "detections"
-  classes:  # Specify classes of interest, or leave empty for all classes
-    - "person"
-    - "car"
-    - "bicycle"
-    - "motorcycle"
-    - "bus"
-    - "truck"
-  max_samples: 50  # Set to integer to limit dataset size, null for all
-  data_path: "./data/coco"
-  image_size: 640
-  use_fiftyone: true  # Use FiftyOne for dataset management
-  other_ratio: 0.2
-
-# Data loader configuration
-training:
-  batch_size: 16
-  num_workers: 0
-  shuffle: true
-  pin_memory: true
-  drop_last: false
-
-# validation configuration
-validation:
-  batch_size: 16
-  num_workers: 0
-  shuffle: false
-  pin_memory: true
-
+  type: "yolov8"
+  variant: "n"  # n, s, m, l, x (nano, small, medium, large, xlarge)
+  weights: null  # path to custom weights, or null for pretrained
+  conf_threshold: 0.25
+  iou_threshold: 0.45

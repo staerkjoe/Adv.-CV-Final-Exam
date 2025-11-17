@@ -2,3 +2,5 @@
 /config/__pycache__
 /data/__pycache__
 *.pdf
+.env
+/scripts/PlayingCardDetection-1
