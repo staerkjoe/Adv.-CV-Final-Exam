@@ -12,7 +12,6 @@ model:
   weights: null  # path to custom weights, or null for pretrained
   conf_threshold: 0.25
   iou_threshold: 0.45
-  num_classes: 52
 
 training:
   epochs: 50

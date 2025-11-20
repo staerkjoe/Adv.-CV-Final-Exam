@@ -27,14 +27,3 @@ class ModelLoader:
         
         return model
     
-    def get_inference_params(self):
-        """Get inference parameters from config."""
-        return {
-            'conf': self.conf_threshold,
-            'iou': self.iou_threshold,
-            'device': self.device
-        }
-    
-    def get_raw_model(self, yolo_wrapper):
-        """Return the internal torch model from the YOLO wrapper."""
-        return getattr(yolo_wrapper, 'model', yolo_wrapper)

@@ -4,3 +4,4 @@
 *.pdf
 .env
 /scripts/PlayingCardDetection-1
+/data/PlayingCardDetection-1
