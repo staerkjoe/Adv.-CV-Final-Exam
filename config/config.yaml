@@ -1,5 +1,9 @@
 data:
-  download_path: "../data/downloaded_dataset"       
+  dataset_path: "scripts/PlayingCardDetection-1"
+  yaml_file: "scripts/PlayingCardDetection-1/data.yaml"
+  num_classes: 52
+  img_size: 640
+  batch_size: 8     
 
 robowflow:
   workspace: "cv-uoacw"
@@ -12,11 +16,26 @@ model:
   weights: null  # path to custom weights, or null for pretrained
   conf_threshold: 0.25
   iou_threshold: 0.45
+  num_classes: 52
 
 training:
   epochs: 50
   batch_size: 16
+  # alias used by main.py / ultralytics 'batch' parameter
+  batch: 16
+
   img_size: 640
+  # alias used by main.py as 'imgsz'
+  imgsz: 640
+
   learning_rate: 0.001
-  project: "runs/train"
-  name: "exp"            
+  # alias used by main.py as 'lr0' (initial LR)
+  lr0: 0.001
+
+  # number of backbone layers to freeze for transfer learning (optional)
+  freeze: 10
+
+  # YOLO save/run defaults (used if not overridden on CLI)
+  project: "CV"
+  name: "exp"
+

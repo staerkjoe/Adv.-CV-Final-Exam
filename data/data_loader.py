@@ -11,10 +11,9 @@ class DataLoader:
         rf = Roboflow(api_key=os.getenv('api_key'))
         project = rf.workspace(config['robowflow']['workspace']).project(config['robowflow']['project'])
         self.version = project.version(config['robowflow']['version'])
-        self.dataset = None
+        self.dataset = True
         self.config = config
-        self.dataset_location = None
-        self.download_path = config['data']['download_path']
+        self.dataset_location = config['data'].get('dataset_path', None)
         
     def download_dataset(self, format='yolov8'):
         """Download the dataset from Roboflow"""
