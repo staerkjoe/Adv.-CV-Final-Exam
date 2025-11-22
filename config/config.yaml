@@ -12,3 +12,11 @@ model:
   weights: null  # path to custom weights, or null for pretrained
   conf_threshold: 0.25
   iou_threshold: 0.45
+
+training:
+  epochs: 50
+  batch_size: 16
+  img_size: 640
+  learning_rate: 0.001
+  project: "runs/train"
+  name: "exp"            
